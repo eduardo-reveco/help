@@ -4,18 +4,23 @@ class ServicesController < ApplicationController
   before_action :set_user, only: %i[new create update]
 
   def index
-    @services = Service.all
+    @services = policy_scope(Service)
   end
 
   def new
     @service = Service.new
+    authorize @service
   end
 
   def create
     @service = Service.new(service_params)
     @service.user = @user
-    @service.save
-    redirect_to service_path(@service)
+    authorize @service
+    if @service.save
+      redirect_to service_path(@service)
+    else
+      render :new
+    end
   end
 
   def show
@@ -48,6 +53,7 @@ class ServicesController < ApplicationController
 
   def set_service
     @service = Service.find(params[:id])
+    authorize @service
   end
 
   def service_params
