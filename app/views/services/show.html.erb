@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= @service.name%></h5>
+      <h6 class="card-subtitle mb-2 text-muted">$<%= @service.price%></h6>
+      <p class="card-text"><%= @service.description%></p>
+        <%= link_to 'Dejar una reseña', root_path %> || 
+        <%= link_to 'Eliminar', service_path(@service), method: :delete %> ||
+        <%= link_to 'Editar', edit_service_path(@service)%>
+    </div>
+  </div>
+</div>
