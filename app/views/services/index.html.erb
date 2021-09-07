@@ -1,9 +1,18 @@
 
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/teayudo2049/image/upload/v1631037855/andrew-neel-cckf4TsHAuw-unsplash_fapbzx.jpg);">
   <div class="container">
     <h1> <strong>Todos los servicios</strong> <strong>Elige el tuyo</strong>!</h1>
-    <p>Te acompañamos en el proceso</p>
-   <%= link_to 'Ver los servicios', services_path, class:"btn btn-primary"%>
   </div>
+</div>
+<div class="container">
+  <% @services.each do |service| %>
+    <div class="card-product mt-3">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= service.name %></h2>
+        <p><%= service.description %></p>
+        <p><strong><%= service.price %></strong></p>
+      </div>
+    </div>
+  <% end %>
 </div>
