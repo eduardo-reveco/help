@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  #skip_before_action :authenticate_user!, only: :profile
+  skip_before_action :authenticate_user!, only: :profile
   before_action :service_params, only: %i[create update destroy]
   before_action :set_service, only: %i[show edit update destroy]
   before_action :set_user, only: %i[new create update destroy]
