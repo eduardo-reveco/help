@@ -1,11 +1,15 @@
 class ServicesController < ApplicationController
-  before_action :service_params, only: %i[create update]
   before_action :set_service, only: %i[show edit update destroy]
-  before_action :set_user, only: %i[new create update]
+  before_action :set_user, only: %i[new create update destroy]
 
   def index
     @services = policy_scope(Service)
   end
+
+  def profile
+    @my_services = current_user.services
+    authorize @my_services
+  end  
 
   def new
     @service = Service.new
@@ -17,7 +21,7 @@ class ServicesController < ApplicationController
     @service.user = @user
     authorize @service
     if @service.save
-      redirect_to service_path(@service)
+      redirect_to profile_path(@service)
     else
       render :new
     end
@@ -31,19 +35,22 @@ class ServicesController < ApplicationController
 
   def update
     if @service.update(service_params)
-      redirect_to service_path(@service)
+      redirect_to profile_path
     else
       render :edit
     end
   end
 
   def destroy
+    authorize @service
     if @service.destroy
-      redirect_to services_path
+      redirect_to profile_path
     else
       render :show
     end
   end
+
+ 
 
   private
 

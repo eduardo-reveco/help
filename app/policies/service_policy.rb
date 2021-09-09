@@ -13,6 +13,10 @@ class ServicePolicy < ApplicationPolicy
     true
   end
 
+  def profile?
+    true
+  end
+
   def update?
     record.user == user
   end
