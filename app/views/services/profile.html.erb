@@ -8,7 +8,7 @@
   <% @my_services.each do |service| %>
     <div class="card-product mt-3 col-sm-12">
       <div class="col-sm-3"> 
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <%= cl_image_tag service.photo.key, height: 300, width: 400, crop: :fill %>
       </div>
       <div class="card-product-infos col-sm-6">
         <h2><%= service.name %></h2>

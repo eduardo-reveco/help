@@ -15,7 +15,8 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "description" }%>
-    
+      <%= f.input :photo, as: :file,
+                  required: true %>
     </div>
 
     <div class="form-actions">
