@@ -9,15 +9,14 @@
     <div class="card-product mt-3">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
       <div class="card-product-infos row">
-        <div>
+        <div class="col-4">
           <h2><%= service.name %></h2>
           <p><%= service.description %></p>
           <p><strong>$ <%= service.price %></strong></p>
         </div>
-        <div>
+        <div class="col-4">
           <%= link_to 'Dar de baja el servicio', service_path(service), method: :delete, data: { confirm: "Estas seguro de querer borrar este servicio?"}, class:"btn btn-primary"%>
-        </div>
-        
+        </div> 
       </div>
     </div>
   <% end %>
