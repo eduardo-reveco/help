@@ -21,7 +21,7 @@ class ServicesController < ApplicationController
     @service.user = @user
     authorize @service
     if @service.save
-      redirect_to service_path(@service)
+      redirect_to profile_path(@service)
     else
       render :new
     end
@@ -35,7 +35,7 @@ class ServicesController < ApplicationController
 
   def update
     if @service.update(service_params)
-      redirect_to service_path(@service)
+      redirect_to profile_path
     else
       render :edit
     end
