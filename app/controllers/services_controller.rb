@@ -52,8 +52,6 @@ class ServicesController < ApplicationController
     end
   end
 
- 
-
   private
 
   def set_user
