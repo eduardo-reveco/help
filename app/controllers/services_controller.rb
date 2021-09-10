@@ -28,6 +28,7 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def edit

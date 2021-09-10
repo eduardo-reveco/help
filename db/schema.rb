@@ -55,7 +55,11 @@ ActiveRecord::Schema.define(version: 2021_09_08_202557) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
+<<<<<<< HEAD
     t.string "last_name"
+=======
+    t.string "rol"
+>>>>>>> updated user column, set rol
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
