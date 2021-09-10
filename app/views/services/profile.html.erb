@@ -15,7 +15,7 @@
           <p><strong>$ <%= service.price %></strong></p>
         </div>
         <div>
-          <%= link_to 'Dar de baja el servicio', service_path(service), method: :delete, data: { confirm: "Estas seguro de querer borrar este servicio?"}, class:"btn btn-primary"%>
+          <%= link_to 'Dar de baja el servicio', service_path(service, flag: 'profile'), method: :delete, remote: true, data: { confirm: "Estas seguro de querer borrar este servicio?"}, class:"btn btn-primary"%>
         </div>
         
       </div>

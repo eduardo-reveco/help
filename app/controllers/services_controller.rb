@@ -46,9 +46,11 @@ class ServicesController < ApplicationController
   def destroy
     authorize @service
     if @service.destroy
-      redirect_to service_path
-    else
-      render :show
+      if params[:flag].eql?('profile')
+        redirect_to profile_path
+      else
+        redirect_to services_path
+      end
     end
   end
 
@@ -66,6 +68,10 @@ class ServicesController < ApplicationController
   end
 
   def service_params
-    params.require(:service).permit(:name, :description, :price, :photo)
+    if request.request_method.eql?('DELETE')
+      params.permit(:name, :description, :price, :photo)
+    else
+      params.require(:service).permit(:name, :description, :price, :photo)
+    end
   end
 end
