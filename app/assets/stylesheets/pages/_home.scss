@@ -1,16 +1,25 @@
-.carousel-inner img {
-    width: 100%;
-    margin: auto;
-    max-height: 350px;
+.carousel-inner .carousel-item img {
+  width: 100%;
+  margin: auto;
+  max-height: 850px;
+  // background-position: center;
+  // background-size: cover;
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5));
 
+  &:carousel-inner {
+    height: 200px;
+  }
+}  
 
-    &:carousel-inner{
-      height: 200px;
-    }
+.carousel-caption {
+  h5 {
+    font-weight: bold;
+    font-size: 40px;
+    text-shadow: 3px 1px #000000;
+  }
 
-    &:h5 {
-        font-weight: bold;
-        font-size: 30px;
-        text-shadow: 80;
-    }
-}    
+  p {
+    font-size: 20px;
+    text-shadow: 2px 1px #000000;
+  }
+}
