@@ -1,6 +1,4 @@
 class ServicesController < ApplicationController
-  #skip_before_action :authenticate_user!, only: :profile
-  before_action :service_params, only: %i[create update destroy]
   before_action :set_service, only: %i[show edit update destroy]
   before_action :set_user, only: %i[new create update destroy]
 
@@ -23,7 +21,7 @@ class ServicesController < ApplicationController
     @service.user = @user
     authorize @service
     if @service.save
-      redirect_to service_path(@service)
+      redirect_to profile_path(@service)
     else
       render :new
     end
@@ -37,7 +35,7 @@ class ServicesController < ApplicationController
 
   def update
     if @service.update(service_params)
-      redirect_to service_path(@service)
+      redirect_to profile_path
     else
       render :edit
     end
@@ -53,8 +51,6 @@ class ServicesController < ApplicationController
       end
     end
   end
-
- 
 
   private
 
