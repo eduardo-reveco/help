@@ -1,10 +1,29 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/teayudo2049/image/upload/v1631127364/index_-logo_cwwpjh.jpg);">
   <div class="container">
-    <h1> <strong>Mis servicios</strong> </h1>
+    <h1> <strong>Mi Perfil</strong> </h1>
   </div>
 </div>
 <div class="container">
+
+<div class="card-product mt-3 col-sm-12">
+      <div class="col-sm-3"> 
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key %>
+        <% else %>
+          <%= cl_image_tag("https://images.unsplash.com/photo-1526297003708-f5a1c2c9c6e7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80") %>
+        <% end %> 
+      </div>
+      <div class="card-product-infos col-sm-6">
+        <h3>Mis Datos</h3> 
+        <p><%= current_user.first_name %></p>
+        <p><%= current_user.last_name %></p>
+        <p><%= current_user.email %></p>
+      </div>
+    </div>
+
+
+
   <% @my_services.each do |service| %>
     <div class="card-product mt-3 col-sm-12">
       <div class="col-sm-3"> 
