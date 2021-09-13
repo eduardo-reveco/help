@@ -4,12 +4,11 @@ class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+   if params[:query].present? 
+    @services = policy_scope(Service).where("name ILIKE ?", "%#{params[:query]}%")
+   else
     @services = policy_scope(Service)
-  end
-
-  def search
-    @services = policy_scope(Service).where(params[:name])
-    redirect_to search_services_path
+    end
   end
 
   def profile

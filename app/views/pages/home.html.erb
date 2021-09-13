@@ -7,12 +7,10 @@
 </div>
 <br>
 <div class="container justify-content-center">
-  <nav class="navbar navbar-light bg-light justify-content-center">
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Busca aqui" aria-label="Search">
-      <button class="btn btn-primary my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
-  </nav>
+  <%= form_tag services_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a movie"%>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
   <br>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
