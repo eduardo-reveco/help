@@ -1,9 +1,14 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[show edit update destroy]
   before_action :set_user, only: %i[new create update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+   if params[:query].present? 
+    @services = policy_scope(Service).where("name ILIKE ?", "%#{params[:query]}%")
+   else
     @services = policy_scope(Service)
+    end
   end
 
   def profile
