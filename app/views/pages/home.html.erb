@@ -7,6 +7,11 @@
 </div>
 <br>
 <div class="container justify-content-center">
+  <%= form_tag services_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a movie"%>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+  <br>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
