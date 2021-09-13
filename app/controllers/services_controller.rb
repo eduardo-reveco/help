@@ -1,9 +1,15 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[show edit update destroy]
   before_action :set_user, only: %i[new create update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @services = policy_scope(Service)
+  end
+
+  def search
+    @services = policy_scope(Service).where(params[:name])
+    redirect_to search_services_path
   end
 
   def profile
