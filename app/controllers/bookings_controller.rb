@@ -7,17 +7,17 @@ class BookingsController < ApplicationController
 
   def create
     @service = Service.find(params[:service_id])
-    @booking = Booking.new(booking_params)
-    @service.user = current_user
-    authorize @booking
+    @booking = Booking.new
+    @booking.user = current_user
     @booking.service = @service
-    if booking.save
+    authorize @booking
+    if @booking.save
       redirect_to booking_path(@booking)
     end  
   end
 
   def show
-    @booking = Booking.find()
+    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
