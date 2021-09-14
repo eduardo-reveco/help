@@ -13,8 +13,11 @@ class BookingsController < ApplicationController
     @booking.service = @service
     authorize @booking
     if @booking.save
-      redirect_to booking_path(@booking)
-    end  
+      redirect_to profile_path(@booking)
+    else
+      redirect_to services_path
+      flash[:alert] = "No puedes reservar este servicio. Ya tienes una reserva"
+    end 
   end
 
   def show
