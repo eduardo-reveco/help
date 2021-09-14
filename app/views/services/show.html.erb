@@ -16,15 +16,33 @@
 
 <br>
 
-<% @service.reviews.each do |review| %>
-  <div class="container">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"><%= review.rating %></h5>
-        <h5 class="card-title"><%= review.comment%></h5>
-      </div>
-    </div>
-  </div>
-<br>
 
-<% end %>      
+  <div class="container">
+     <% @service.reviews.each do |review| %>
+     <div class="bg-white p-3 mb-4">
+       <div class="d-flex justify-content-between">
+         <div class="d-flex">
+           <div> 
+             <i class="fas fa-user-circle h1"></i>
+           </div>
+           <div> 
+             <p><%= review.user.email %>  </p>
+             <p><%= review.created_at.strftime('%d/%m/%y - %H:%M')%></p>
+            </div>
+         </div>
+         <div> 
+            <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+
+         </div>
+       </div>
+       <div> 
+         <h5 class=""><%= review.comment%></h5>
+       </div>
+     </div>
+     <% end %> 
+  </div>
