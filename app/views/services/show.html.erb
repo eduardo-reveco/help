@@ -11,3 +11,19 @@
     </div>
   </div>
 </div>
+
+<br>
+
+<% @service.reviews.each do |review| %>
+  <div class="container">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Autor </strong> <%= review.user.first_name %></h5>
+        <h5 class="card-title"><strong>valoracion </strong>(<%= review.rating%> / 5 )</h5>
+        <h5 class="card-title"><%= review.comment%></h5>
+      </div>
+    </div>
+  </div>
+<br>
+
+<% end %>      
