@@ -1,6 +1,14 @@
 <div class="container">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
+  <div class="row", style="margin-top: 100px;">
+    <div class="col-sm-4">
+      <% if @service.photo.attached? %>
+        <%= cl_image_tag @service.photo.key, :width=> 200 %>
+      <% else %>
+        <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
+      <% end %> 
+    </div>
+
+    <div class="col-sm-8">
       <h5 class="card-title"><%= @service.name%></h5>
       <h6 class="card-subtitle mb-2 text-muted">$<%= @service.price%></h6>
       <p class="card-text"><%= @service.description%></p>
@@ -21,8 +29,9 @@
 
 <br>
 
-<% @service.reviews.each do |review| %>
+
   <div class="container">
+<<<<<<< HEAD
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"><strong>Autor </strong> <%= review.user.first_name %></h5>
@@ -32,5 +41,33 @@
     </div>
   </div>
 <br>
+=======
+     <% @service.reviews.each do |review| %>
+     <div class="bg-white p-3 mb-4">
+       <div class="d-flex justify-content-between">
+         <div class="d-flex">
+           <div> 
+             <i class="fas fa-user-circle h1"></i>
+           </div>
+           <div> 
+             <p><%= review.user.email %>  </p>
+             <p><%= review.created_at.strftime('%d/%m/%y - %H:%M')%></p>
+            </div>
+         </div>
+         <div> 
+            <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+>>>>>>> master
 
-<% end %>      
+         </div>
+       </div>
+       <div> 
+         <h5 class=""><%= review.comment%></h5>
+       </div>
+     </div>
+     <% end %> 
+  </div>

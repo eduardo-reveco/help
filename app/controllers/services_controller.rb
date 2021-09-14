@@ -14,6 +14,7 @@ class ServicesController < ApplicationController
 
   def profile
     @my_services = current_user.services
+    @my_bookings = current_user.bookings
     authorize @my_services
   end  
 

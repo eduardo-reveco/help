@@ -16,6 +16,13 @@
         <p><strong><%= service.price %></strong></p>
         <p><strong>Reseñas (<%= service.reviews.size %>)</strong></p>
         <%= link_to 'ver detalles', service_path(service), class:"btn btn-primary"%>
+        <% service.average.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - service.average).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+
       </div>
     </div>
   <% end %>
