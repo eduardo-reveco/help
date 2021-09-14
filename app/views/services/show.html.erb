@@ -31,17 +31,6 @@
 
 
   <div class="container">
-<<<<<<< HEAD
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"><strong>Autor </strong> <%= review.user.first_name %></h5>
-        <h5 class="card-title"><strong>valoracion </strong>(<%= review.rating%> / 5 )</h5>
-        <h5 class="card-title"><%= review.comment%></h5>
-      </div>
-    </div>
-  </div>
-<br>
-=======
      <% @service.reviews.each do |review| %>
      <div class="bg-white p-3 mb-4">
        <div class="d-flex justify-content-between">
@@ -61,7 +50,6 @@
         <% (5 - review.rating).times do %>
           <i class="far fa-star"></i>
         <% end %>
->>>>>>> master
 
          </div>
        </div>
