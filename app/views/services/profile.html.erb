@@ -6,6 +6,8 @@
 </div>
 <div class="container">
 
+<!--  profile usuario   -->
+
 <div class="card-product mt-3 col-sm-12">
       <div class="col-sm-3"> 
         <% if current_user.photo.attached? %>
@@ -21,8 +23,9 @@
       </div>
     </div>
 
+<!--  servicios ofrecidos por el usuario   -->
 
-
+  <h2>MIS SERVICIOS OFRECIDOS</h2>
   <% @my_services.each do |service| %>
     <div class="card-product mt-3 col-sm-12">
       <div class="col-sm-3"> 
@@ -32,15 +35,59 @@
           <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
         <% end %> 
       </div>
-      <div class="card-product-infos col-sm-6">
+      <div class="card-product-infos col-sm-3">
         <h2><%= service.name %></h2>
         <p><%= service.description %></p>
         <p><strong>$ <%= service.price %></strong></p> 
       </div>
+
+      <div class="card-product-infos col-sm-3">
+        <% if service.bookings.count == 0 %>
+          <h3>Sin reservas</h3>
+        <% else %>
+          <h3>Reserva/s:</h3>
+          <% service.bookings.each do |booking| %>
+          <p>Reservado por: <%= booking.user.first_name%> <%= booking.user.last_name%></p>
+          <p></p>
+          <p>Contacto: <%= booking.user.email%></p>
+          <% end %>
+        <% end %>
+      </div>
+
       <div class="col-sm-3">
         <%= link_to 'Editar el servicio', edit_service_path(service), class:"btn btn-primary edit-btn mb-2"%>
         <%= link_to 'Dar de baja el servicio', service_path(service), method: :delete, data: { confirm: "Estas seguro de querer borrar este servicio?"}, class:"btn btn-primary delete-btn"%>
       </div>
     </div>
   <% end %>
+
+  <% if @my_bookings.count == 0 %>
+    <h2>Que esperas para contratar un servicio!</h2>
+  <% else %>
+    <h2>MIS SERVICIOS RESERVADOS</h2>
+    <% @my_bookings.each do |booking| %>
+      <div class="card-product mt-3 col-sm-12">
+        <div class="col-sm-3"> 
+          <% if booking.service.photo.attached? %>
+            <%= cl_image_tag booking.service.photo.key %>
+          <% else %>
+            <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
+          <% end %> 
+        </div>
+        <div class="card-product-infos col-sm-3">
+          <h2>Nombre: <%= booking.service.name %></h2>
+          <p>Descripción: <%= booking.service.description %></p>
+          <p>Precio: $ <strong><%= booking.service.price %></strong></p> 
+          <p>Contacto: <%= booking.service.user.email%></p>
+        </div>
+
+        <div class="col-sm-3">
+          <%= link_to 'Dar de baja la reserva', booking_path(booking), method: :delete, data: { confirm: "Estas seguro de querer dar de baja esta reserva?"}, class:"btn btn-primary delete-btn"%>
+        </div>
+      </div>
+    <% end %>        
+  <% end %>
+
+  
+
 </div>  
