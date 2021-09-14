@@ -8,6 +8,10 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "first_name" }%>
+   <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "last_name" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -19,6 +23,12 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo,
+                required: true,
+                input_html: { class: 'btn' },
+                label_html: { class: 'upload-photo'},
+                label: '📷 Upload a photo' %>
+    
   </div>
 
   <div class="form-actions">
