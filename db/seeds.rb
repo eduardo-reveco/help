@@ -11,11 +11,12 @@ require 'open-uri'
 puts 'Deleting seeds'
 
 # Booking.delete_all
+Review.delete_all
 Booking.delete_all
 Service.delete_all
 User.delete_all
 
-puts 'Creating new seeds'
+puts 'Creating new seeds USUARIOS'
 
 # usuarios
 
@@ -40,6 +41,7 @@ user_2 = User.create!(
 user_2.photo.attach(io: file2, filename: 'user2_seed.png', content_type: 'image/png')
 user_2.save
 
+puts 'Creating new seeds SERVICIOS'
 
 # servicios
 
@@ -77,6 +79,9 @@ service_3 = Service.create!(
 service_3.photo.attach(io: file_5, filename: 'nes_3.jpg', content_type: 'image/jpg')
 service_3.save
 
+
+puts 'Creating new seeds BOOKINGS'
+
 # booking
 
 booking_1 = Booking.create!(
@@ -88,3 +93,16 @@ booking_2 = Booking.create!(
   user: user_1,
   service: service_3
 )
+
+
+puts 'Creating new seeds REVIEWS'
+
+# review
+
+review_1 = Review.create!(
+  user: user_1,
+  service: service_3
+)
+
+
+puts 'Seeds creadas exitosamente!'
