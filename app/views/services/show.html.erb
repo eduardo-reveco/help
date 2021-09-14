@@ -13,3 +13,18 @@
     </div>
   </div>
 </div>
+
+<br>
+
+<% @service.reviews.each do |review| %>
+  <div class="container">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= review.rating %></h5>
+        <h5 class="card-title"><%= review.comment%></h5>
+      </div>
+    </div>
+  </div>
+<br>
+
+<% end %>      
