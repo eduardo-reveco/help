@@ -1,6 +1,7 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[show edit update destroy]
   before_action :set_user, only: %i[new create update destroy]
+  before_action :set_booking, only: %i[show]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -63,6 +64,10 @@ class ServicesController < ApplicationController
   def set_user
     @user = current_user
   end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end 
 
   def set_service
     @service = Service.find(params[:id])
