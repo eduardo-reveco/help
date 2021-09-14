@@ -1,15 +1,23 @@
 <div class="container">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
+  <div class="row", style="margin-top: 100px;">
+    <div class="col-sm-4">
+      <% if @service.photo.attached? %>
+        <%= cl_image_tag @service.photo.key, :width=> 200 %>
+      <% else %>
+        <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
+      <% end %> 
+    </div>
+
+    <div class="col-sm-8">
       <h5 class="card-title"><%= @service.name%></h5>
       <h6 class="card-subtitle mb-2 text-muted">$<%= @service.price%></h6>
       <p class="card-text"><%= @service.description%></p>
       <h6 class="card-subtitle mb-2 text-muted">Reseñas (<%= @service.reviews.size%>)</h6>
-        <%= link_to 'Contratar', service_bookings_path(@service), method: :post %> 
-        <%= link_to 'Dejar reseña', new_service_review_path(@service) %>
-         <% if current_user == @service.user_id%> <%= link_to 'Eliminar', profile_path(@service), method: :delete %>
-          <%= link_to 'Editar', edit_service_path(@service)%>  
-         <% end %> 
+      <%= link_to 'Contratar', service_bookings_path(@service), method: :post %> 
+      <%= link_to 'Dejar reseña', new_service_review_path(@service) %>
+      <% if current_user == @service.user_id%> <%= link_to 'Eliminar', profile_path(@service), method: :delete %>
+        <%= link_to 'Editar', edit_service_path(@service)%>  
+      <% end %> 
     </div>
   </div>
 </div>
