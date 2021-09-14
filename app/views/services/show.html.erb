@@ -5,13 +5,16 @@
       <h6 class="card-subtitle mb-2 text-muted">$<%= @service.price%></h6>
       <p class="card-text"><%= @service.description%></p>
       <h6 class="card-subtitle mb-2 text-muted">Reseñas (<%= @service.reviews.size%>)</h6>
-        <% unless current_user.bookings.where(user_id: current_user.id) %> 
-          <%= link_to 'Contratar', service_bookings_path(@service), method: :post %>
-        <% end %>   
-        <%= link_to 'Dejar reseña', new_service_review_path(@service) %>
-         <% if current_user == @service.user_id%> <%= link_to 'Eliminar', profile_path(@service), method: :delete %>
+      <h6 class="card-subtitle mb-2 text-muted">Contrataciones (<%= @service.bookings.size%>)</h6>
+          <% unless @service.bookings.find_by(user_id: current_user).present? %>
+            <%= link_to 'Contratar', service_bookings_path(@service), method: :post %>
+          <% else %>
+            <%= link_to 'Dejar reseña', new_service_review_path(@service) %>
+          <% end %>   
+        <% if current_user == @service.user_id %> 
+          <%= link_to 'Eliminar', profile_path(@service), method: :delete %>
           <%= link_to 'Editar', edit_service_path(@service)%>  
-         <% end %> 
+        <% end %> 
     </div>
   </div>
 </div>
