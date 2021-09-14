@@ -12,6 +12,7 @@
         <h2><%= service.name %></h2>
         <p><%= service.description %></p>
         <p><strong><%= service.price %></strong></p>
+        <p><strong>Reseñas (<%= service.reviews.size %>)</strong></p>
         <%= link_to 'ver detalles', service_path(service), class:"btn btn-primary"%>
       </div>
     </div>
