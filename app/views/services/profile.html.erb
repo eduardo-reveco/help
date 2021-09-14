@@ -62,28 +62,33 @@
     </div>
   <% end %>
 
+  <% if @my_bookings.count == 0 %>
+    <h2>Que esperas para contratar un servicio!</h2>
+  <% else %>
+    <h2>MIS SERVICIOS RESERVADOS</h2>
+    <% @my_bookings.each do |booking| %>
+      <div class="card-product mt-3 col-sm-12">
+        <div class="col-sm-3"> 
+          <% if booking.service.photo.attached? %>
+            <%= cl_image_tag booking.service.photo.key %>
+          <% else %>
+            <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
+          <% end %> 
+        </div>
+        <div class="card-product-infos col-sm-3">
+          <h2>Nombre: <%= booking.service.name %></h2>
+          <p>Descripción: <%= booking.service.description %></p>
+          <p>Precio: $ <strong><%= booking.service.price %></strong></p> 
+          <p>Contacto: <%= booking.service.user.email%></p>
+        </div>
 
-<h2>MIS SERVICIOS RESERVADOS</h2>
-  <% @my_bookings.each do |booking| %>
-    <div class="card-product mt-3 col-sm-12">
-      <div class="col-sm-3"> 
-        <% if booking.service.photo.attached? %>
-          <%= cl_image_tag booking.service.photo.key %>
-        <% else %>
-          <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
-        <% end %> 
+        <div class="col-sm-3">
+          <%= link_to 'Dar de baja la reserva', booking_path(booking), method: :delete, data: { confirm: "Estas seguro de querer dar de baja esta reserva?"}, class:"btn btn-primary delete-btn"%>
+        </div>
       </div>
-      <div class="card-product-infos col-sm-3">
-        <h2>Nombre: <%= booking.service.name %></h2>
-        <p>Descripción: <%= booking.service.description %></p>
-        <p>Precio: $ <strong><%= booking.service.price %></strong></p> 
-        <p>Contacto: <%= booking.service.user.email%></p>
-      </div>
-
-      <div class="col-sm-3">
-        <%= link_to 'Dar de baja la reserva', booking_path(booking), method: :delete, data: { confirm: "Estas seguro de querer dar de baja esta reserva?"}, class:"btn btn-primary delete-btn"%>
-      </div>
-    </div>
+    <% end %>        
   <% end %>
+
+  
 
 </div>  

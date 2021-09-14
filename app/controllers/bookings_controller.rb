@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i[show destroy]
 
   def new
     @booking = Booking.new
@@ -17,11 +18,22 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find(params[:id])
-    authorize @booking
+  end
+
+  def destroy
+    if @booking.destroy
+      redirect_to profile_path
+    else
+      render :show
+    end
   end
 
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
 
   def booking_params
     params.require(:booking).permit(:user_id, :service_id)
