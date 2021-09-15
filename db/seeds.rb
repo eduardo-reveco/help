@@ -11,7 +11,7 @@ require 'open-uri'
 puts 'Deleting seeds'
 
 # Booking.delete_all
-Review.delete_all
+# Review.delete_all
 Booking.delete_all
 Service.delete_all
 User.delete_all
@@ -99,10 +99,10 @@ puts 'Creating new seeds REVIEWS'
 
 # review
 
-review_1 = Review.create!(
-  user: user_1,
-  service: service_3
-)
+# # review_1 = Review.create!(
+#   user: user_1,
+#   service: service_3
+# )
 
 
 puts 'Seeds creadas exitosamente!'
