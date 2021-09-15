@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-   if params[:query].present? 
+   if params[:query].present?
     @services = policy_scope(Service).where("name ILIKE ?", "%#{params[:query]}%")
    else
     @services = policy_scope(Service)
@@ -15,7 +15,7 @@ class ServicesController < ApplicationController
     @my_services = current_user.services
     @my_bookings = current_user.bookings
     authorize @my_services
-  end  
+  end
 
   def new
     @service = Service.new
@@ -34,6 +34,7 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @review = Review.new
   end
 
   def edit
@@ -56,7 +57,7 @@ class ServicesController < ApplicationController
     end
   end
 
- 
+
 
   private
 
