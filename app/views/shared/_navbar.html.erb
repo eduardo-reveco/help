@@ -14,8 +14,8 @@
         <li class="nav-item active">
           <%= link_to "Crea un servicio", new_service_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        <li class="nav-item active">
+          <%= link_to "Ver todos los servicios", services_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
