@@ -64,10 +64,6 @@ class ServicesController < ApplicationController
     @user = current_user
   end
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6fc6e36341d12565fdebb1831debebff1dd5ff80
   def set_service
     @service = Service.find(params[:id])
     authorize @service
