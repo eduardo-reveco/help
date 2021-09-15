@@ -6,6 +6,8 @@
 </div>
 <div class="container">
   <% @services.each do |service| %>
+  <% if service.user_id == current_user.id %>
+  <% end%>
     <div class="card-product mt-3">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
       <div class="card-product-infos">
@@ -14,6 +16,13 @@
         <p><strong><%= service.price %></strong></p>
         <p><strong>Reseñas (<%= service.reviews.size %>)</strong></p>
         <%= link_to 'ver detalles', service_path(service), class:"btn btn-primary"%>
+        <% service.average.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - service.average).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+
       </div>
     </div>
   <% end %>
