@@ -99,10 +99,19 @@ puts 'Creating new seeds REVIEWS'
 
 # review
 
+<<<<<<< HEAD
 # # review_1 = Review.create!(
 #   user: user_1,
 #   service: service_3
 # )
+=======
+review_1 = Review.create!(
+  user: user_1,
+  service: service_3,
+  rating: 5,
+  comment: "Excelente sevicio, 100% recomendable!"
+)
+>>>>>>> master
 
 
 puts 'Seeds creadas exitosamente!'

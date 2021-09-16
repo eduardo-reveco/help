@@ -38,7 +38,22 @@
       <div class="card-product-infos col-sm-3">
         <h2><%= service.name %></h2>
         <p><%= service.description %></p>
-        <p><strong>$ <%= service.price %></strong></p> 
+        <p>$<strong> <%= service.price %></strong></p> 
+        <p><strong>N° de rewiews: <%= service.reviews.count %></strong></p>
+        <% ratings = [] %>
+        <% average = 0 %>
+        <% service.reviews.each do | review |  %>
+          <% ratings << review.rating %>
+          <% average = ratings.sum/ratings.count %>
+        <% end %>
+        <div> 
+          <% average.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - average).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+        </div> 
       </div>
 
       <div class="card-product-infos col-sm-3">
