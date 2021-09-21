@@ -1,6 +1,10 @@
-.avatar {
+.avatar{
   width: 40px;
   border-radius: 50%;
+  height: 40px;
+  object-fit: cover;
+  overflow: hidden;
+  cursor: pointer;
 }
 .avatar-large {
   width: 56px;
