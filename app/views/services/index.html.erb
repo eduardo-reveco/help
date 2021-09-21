@@ -4,6 +4,15 @@
     <h1> <strong>Todos los servicios</strong> || <strong>Elige el tuyo</strong>!</h1>
   </div>
 </div>
+<br>
+
+<div class="container justify-content-center">
+  <%= form_tag services_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Encuentra un servicio "%>
+    <%= submit_tag "Buscar", class: "btn btn-primary" %>
+  <% end %>
+  <br>
+</div>
 <div class="container">
   <% @services.each do |service| %>
   <% if current_user && service.user_id == current_user.id %>
