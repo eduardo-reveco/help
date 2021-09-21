@@ -8,17 +8,16 @@
 
 <!--  profile usuario   -->
 
-<div class="card-product mt-3 col-sm-12">
-      <div class="col-sm-3"> 
+<div class="card-product-misdatos mt-3 col-sm-12">
+      <div class="col-sm-5 card-product-fotomisdatos"> 
         <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key %>
         <% else %>
         <% end %> 
       </div>
-      <div class="card-product-infos col-sm-6">
-        <h3>Mis Datos</h3> 
-        <p><%= current_user.first_name %></p>
-        <p><%= current_user.last_name %></p>
+      <div class="card-product-infos col-sm-7">
+        <h5><strong>Mis Datos</strong></h5> 
+        <p><%= current_user.first_name %> <%= current_user.last_name %></p>
         <p><%= current_user.email %></p>
       </div>
     </div>
