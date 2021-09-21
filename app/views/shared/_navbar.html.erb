@@ -23,7 +23,7 @@
         <li class="nav-item active mr-auto">
           <%= link_to "Ver todos los servicios", services_path, class: "btn btn-sm btn-outline-secondary" %>
         </li>
-        <li class="nav-item dropdown mr-auto">
+        <li class="nav-item dropdown special-img-user">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
