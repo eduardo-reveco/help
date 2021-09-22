@@ -59,7 +59,14 @@
     </a>
   </div>
 </div>
-
+<div class="container justify-content-center">
+  <form class="form-inline">
+    <%= form_tag services_path, method: :get do %>
+      <%= text_field_tag :query, params[:query], class: "form-control ml-auto", placeholder: "Encuentra un servicio "%>
+      <%= submit_tag "Buscar", class: "btn btn-primary" %>
+    <% end %>
+  </form>
+</div>
 <hr class="mb-4">
 
 <h5 class="text-center"><strong>EMPRESAS Y COLABORADORES QUE CONFIAN EN NUESTRO TRABAJO</strong></h5>
