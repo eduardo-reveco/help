@@ -8,23 +8,26 @@
 
 <!--  profile usuario   -->
 
-<div class="card-product-misdatos mt-3 col-sm-12">
-      <div class="col-sm-5 card-product-fotomisdatos"> 
+<div class="card-product-misdatos mt-4 col-sm-12">
+      <div class="col-sm-4 card-product-fotomisdatos"> 
         <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key %>
         <% else %>
         <% end %> 
       </div>
-      <div class="card-product-infos col-sm-7">
+      <div class="card-product-infos col-sm-5">
         <h5><strong>Mis Datos</strong></h5> 
         <p><%= current_user.first_name %> <%= current_user.last_name %></p>
         <p><%= current_user.email %></p>
+      </div>
+      <div class="col-sm-3">
+        <%= link_to 'Editar mi perfil', edit_user_registration_path, class:"btn btn-primary edit-btn mb-2"%>
       </div>
     </div>
 
 <!--  servicios ofrecidos por el usuario   -->
 
-  <h2>MIS SERVICIOS OFRECIDOS</h2>
+  <h2 class= "mt-4">MIS SERVICIOS OFRECIDOS</h2>
   <% @my_services.each do |service| %>
     <div class="card-product mt-3 col-sm-12">
       <div class="col-sm-3"> 
@@ -78,7 +81,7 @@
   <% if @my_bookings.count == 0 %>
     <h2>Que esperas para contratar un servicio!</h2>
   <% else %>
-    <h2>MIS SERVICIOS RESERVADOS</h2>
+    <h2 class= "mt-4">MIS SERVICIOS RESERVADOS</h2>
     <% @my_bookings.each do |booking| %>
       <div class="card-product mt-3 col-sm-12">
         <div class="col-sm-3"> 
