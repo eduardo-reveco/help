@@ -1,41 +1,50 @@
-<h2>Sign up</h2>
+<div class="container mt-5">
+  <h2>Crea tu usuario:</h2>
+</div>
+<div class="container mt-4">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :first_name,
+                  label: "Nombre",
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Nombre" }%>
+    <%= f.input :last_name,
+                  label: "Apellidos",
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Apellidos" }%>
+      <%= f.input :email,
+                  label: "Email",
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Email" }%>
+      <%= f.input :password,
+                  label: "Contraseña",
+                  required: true,
+                  hint: ("Mínimo #{@minimum_password_length} caracteres" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  label: "Confirmar la contraseña",
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :photo, as: :file,
+                  required: true,
+                  input_html: { class: ''},
+                  label_html: { class: 'upload-photo'},
+                  label: 'Selecciona tu foto de perfil' %>
+      
+    </div>
+  <%= f.button :submit, "Crea tu usuario!", class:"btn btn-primary new-user-btn mb-2 mt-3" %>
 
-  <div class="form-inputs">
-    <%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Nombre" }%>
-   <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Apellidos" }%>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :photo, as: :file,
-                required: true,
-                input_html: { class: 'btn' },
-                label_html: { class: 'upload-photo'},
-                label: 'Foto' %>
-    
-  </div>
+  <% end %>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+
+
 
 
