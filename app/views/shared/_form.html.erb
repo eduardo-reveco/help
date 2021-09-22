@@ -6,21 +6,21 @@
       <%= f.input :name,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "name" }%>
+                  input_html: { autocomplete: "Nombre del nuevo Servicio" }%>
       <%= f.input :price,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "price" }%>
+                  input_html: { autocomplete: "Precio del nuevo Servicio" }%>
       <%= f.input :description,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "description" }%>
+                  input_html: { autocomplete: "Descripción del nuevo Servicio" }%>
       <%= f.input :photo, as: :file,
                   required: true %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Publicar" %>
+    <%= f.button :submit, "Publicar" %>
     </div>
   <% end %>
   <%= link_to 'Home', root_path %>

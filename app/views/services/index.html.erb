@@ -18,8 +18,13 @@
   <% if current_user && service.user_id == current_user.id %>
   <% end%>
     <div class="card-product mt-4"></h2>
-
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% if current_user.photo.attached? && current_user == service.user%>
+          <%= cl_image_tag current_user.photo.key %>
+        <% elsif service.user.photo.present? %>
+          <%= cl_image_tag service.user.photo.key %>
+        <% else %>
+          <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
+        <% end %>
       <div class="card-product-infos">
         <h2><%= service.name %></h2>
         <p><%= service.description %></p>
