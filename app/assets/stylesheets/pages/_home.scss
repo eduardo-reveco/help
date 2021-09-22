@@ -55,3 +55,15 @@
     transform: scale(1.1);
   }
 }
+.btn-search-home{
+  @media (max-width: 991px) {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+.input-custom{
+  width: 90%!important;
+  margin: 0 auto;
+  
+}

@@ -27,6 +27,9 @@
   color: #eee;
   text-align: bottom,left;
   padding-top: 0vh;
+  @media (max-width: 991px) {
+    height: auto;
+  }
 }
 
 .carousel-inner .carousel-item img {
