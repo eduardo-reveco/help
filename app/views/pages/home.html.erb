@@ -63,8 +63,8 @@
 <div class="container justify-content-center">
   <form class="form-inline">
     <%= form_tag services_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form-control ml-auto", placeholder: "Encuentra un servicio "%>
-      <%= submit_tag "Buscar", class: "btn btn-primary" %>
+      <%= text_field_tag :query, params[:query], class: "form-control ml-auto input-custom", placeholder: "Encuentra un servicio "%>
+      <%= submit_tag "Buscar", class: "btn btn-primary btn-search-home" %>
     <% end %>
   </form>
 </div>
