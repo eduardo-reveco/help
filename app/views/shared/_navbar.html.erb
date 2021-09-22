@@ -12,10 +12,10 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Crea un servicio", new_service_path, class: "btn btn-sm btn-outline-secondary" %>
+          <%= link_to "Crea un servicio", new_service_path, class: "btn btn-sm btn-outline-secondary  border 4px" %>
         </li>
         <li class="nav-item active">
-          <%= link_to "Ver todos los servicios", services_path, class: "btn btn-sm btn-outline-secondary" %>
+          <%= link_to "Ver todos los servicios", services_path, class: "btn btn-sm btn-outline-secondary border 4px" %>
         </li>
         <li class="nav-item dropdown special-img-user">
           <% if current_user.photo.attached? %>
