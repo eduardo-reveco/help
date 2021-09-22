@@ -4,7 +4,8 @@
   padding: 150px 0;
 }
 
-.banner h1 {
+.banner h5 {
+  font-family: Roboto, "Helvetica Neue";
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -13,17 +14,43 @@
 }
 
 .banner p {
+  font-family: Montserrat;
   font-size: 20px;
   color: white;
-  opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .home-banner {
-  background-image: url('https://res.cloudinary.com/teayudo2049/image/upload/v1631143672/samples/home_logo_ed2p26.jpg');
   background-size: cover;
-  height: 100vh;
+  filter: brightness(0.7);
+  height: 70vh;
   color: #eee;
   text-align: bottom,left;
-  padding-top: 60vh;
+  padding-top: 0vh;
 }
+
+.carousel-inner .carousel-item img {
+  width: 100%;
+  margin: auto;
+  max-height: 850px;
+  // background-position: center;
+  // background-size: cover;
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5));
+
+  &:carousel-inner {
+    height: 200px;
+  }
+}  
+
+
+.profile-description {
+  font-size: 13px;
+  color: #777;
+  padding: 5px;
+  
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+}
+
