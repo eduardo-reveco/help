@@ -1,29 +1,32 @@
-<div class="container">
+<div class="container mt-5">
   <%= simple_form_for @service do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
       <%= f.input :name,
+                  label: "Nombre del servicio",
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "Nombre del nuevo Servicio" }%>
       <%= f.input :price,
+                  label: "Precio del servicio CLP",
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "Precio del nuevo Servicio" }%>
       <%= f.input :description,
+                  label: "Descripción del servicio",
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "Descripción del nuevo Servicio" }%>
       <%= f.input :photo, as: :file,
+                  label: "Adjunta una foto del servicio",
                   required: true %>
     </div>
 
     <div class="form-actions">
-    <%= f.button :submit, "Publicar" %>
+    <%= f.button :submit, "Publicar", class:"btn btn-primary new-user-btn mb-2 mt-3" %>
     </div>
   <% end %>
-  <%= link_to 'Home', root_path %>
 </div>
 
 

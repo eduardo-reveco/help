@@ -1,6 +1,7 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div class="container mt-5">
+  <h2>Editar mi usuario:<% resource_name.to_s.humanize %></h2>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -11,29 +12,34 @@
     <% end %>
 
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                hint: "Ingrese su contraseña actual",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
+                hint: "Ingrese su nueva contraseña",
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "Confirme su nueva contraseña",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Guardar los cambios" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<p><%= link_to "Dar de baja mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro de querer dar de baja tu cuenta?" }, method: :delete %></p>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<%= link_to "Mi perfil", :back %>
+</div>
 
+<<<<<<< HEAD
 <%= link_to "Back", :back %>
 
 <hr class="mb-4">
 
 <%= render 'shared/mini-footer' %>
+=======
+>>>>>>> master
