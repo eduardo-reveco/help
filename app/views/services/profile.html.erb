@@ -16,8 +16,8 @@
         <% end %> 
       </div>
       <div class="card-product-infos col-sm-5">
-        <h5><strong>Mis Datos</strong></h5> 
-        <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+        <h3><strong>Mis Datos</strong></h3> 
+        <p class="mt-3"><%= current_user.first_name %> <%= current_user.last_name%></p>
         <p><%= current_user.email %></p>
       </div>
       <div class="col-sm-3">
@@ -27,7 +27,7 @@
 
 <!--  servicios ofrecidos por el usuario   -->
 
-  <h2 class= "mt-4">MIS SERVICIOS OFRECIDOS</h2>
+  <h4 class= "mt-4">MIS SERVICIOS OFRECIDOS</h4>
   <% @my_services.each do |service| %>
     <div class="card-product mt-3 col-sm-12">
       <div class="col-sm-3"> 
@@ -38,7 +38,7 @@
         <% end %> 
       </div>
       <div class="card-product-infos col-sm-3">
-        <h2><%= service.name %></h2>
+        <h2><strong><%= service.name %></strong></h2>
         <p><%= service.description %></p>
         <p>$<strong> <%= service.price %></strong></p> 
         <p><strong>N° de rewiews: <%= service.reviews.count %></strong></p>
@@ -60,7 +60,7 @@
 
       <div class="card-product-infos col-sm-3">
         <% if service.bookings.count == 0 %>
-          <h3>Sin reservas</h3>
+          <h5>Sin reservas</h5>
         <% else %>
           <h3>Reserva/s:</h3>
           <% service.bookings.each do |booking| %>
@@ -81,7 +81,7 @@
   <% if @my_bookings.count == 0 %>
     <h2>Que esperas para contratar un servicio!</h2>
   <% else %>
-    <h2 class= "mt-4">MIS SERVICIOS RESERVADOS</h2>
+    <h4 class= "mt-4">MIS SERVICIOS RESERVADOS</h4>
     <% @my_bookings.each do |booking| %>
       <div class="card-product mt-3 col-sm-12">
         <div class="col-sm-3"> 
