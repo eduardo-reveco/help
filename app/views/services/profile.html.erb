@@ -39,7 +39,6 @@
       </div>
       <div class="card-product-infos col-sm-3">
         <h2><strong><%= service.name %></strong></h2>
-        <p><%= service.description %></p>
         <p>$<strong> <%= service.price %></strong></p> 
         <p><strong>N° de rewiews: <%= service.reviews.count %></strong></p>
         <% ratings = [] %>
@@ -62,7 +61,7 @@
         <% if service.bookings.count == 0 %>
           <h5>Sin reservas</h5>
         <% else %>
-          <h3>Reserva/s:</h3>
+          <h5>Reserva/s:</h5>
           <% service.bookings.each do |booking| %>
           <p>Reservado por: <%= booking.user.first_name%> <%= booking.user.last_name%></p>
           <p></p>
