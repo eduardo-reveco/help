@@ -60,167 +60,18 @@
   </div>
 </div>
 <br>
-<div class="container justify-content-center">
-  <form class="form-inline">
-    <%= form_tag services_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form-control ml-auto input-custom", placeholder: "Encuentra un servicio "%>
-      <%= submit_tag "Buscar", class: "btn btn-primary btn-search-home" %>
-    <% end %>
+<div class="container">
+  <form action="/services" accept-charset="UTF-8" method="get">
+    <input type="text" name="query" id="query" class="form-control" placeholder="Encuentra un servicio ">
+    <input type="submit" name="commit" value="Buscar" class="btn btn-primary btn-search-home" data-disable-with="Buscar">
   </form>
 </div>
 <hr class="mb-4">
 
 <h5 class="text-center"><strong>EMPRESAS Y COLABORADORES QUE CONFIAN EN NUESTRO TRABAJO</strong></h5>
 
-
-<div class="container">
-	<div class="row text-center text-md-left">
-    <div class="col-md-3 col-lg-3 col-xl-4 mx-auto mt-3">
-      <div class="profile-card text-center">
-        <%= image_tag("https://dwj199mwkel52.cloudfront.net/assets/lewagon-logo-square-b6124eb974be375884558e4464efce48a9b5664f18422768156364363ecdd1fc.png")%>
-        <div class="profile-content">
-          <div class="profile-name">Le Wagon
-            <p><%= button_to 'WebSite', 'www.lewagon.com', remote: true %></p>
-          </div>
-          <div class="profile-description">El Bootcamp de Programación más reconocido a nivel mundial
-          cientos de estudiantes confían en nosotros en 45 ciudades de todo el mundo para brindarles educación tecnológica de la mejor calidad. Con 2111 reseñas de estudiantes y valoración media de 4.98/5, Le Wagon estácalificado como el Bootcamp de Programación más aclamado a nivel mundial 
-          en Switchup
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-lg-3 col-xl-4 mx-auto mt-3">
-      <div class="profile-card text-center">
-        <%= image_tag("https://media-exp1.licdn.com/dms/image/C4D0BAQEYizzCiA9h9g/company-logo_200_200/0/1582641272243?e=2159024400&v=beta&t=-pDm5jMBPcj32-81TlF_Al6NnWg8mHZt3eoKEzrofyc")%>
-        <div class="profile-content">
-          <div class="profile-name">Universidad Santo Tomas
-            <p><%= button_to 'WebSite', 'www.santotomas.cl', remote: true %></p>
-          </div>
-          <div class="profile-description">La Universidad Santo Tomás es una universidad privada chilena fundada en 1988. Además de su sede central en Santiago, tiene otras 12 sedes regionales desde Arica hasta Puerto Montt, pertenece a la Fundación Educacional Santo Tomás.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-lg-3 col-xl-4 mx-auto mt-3">
-      <div class="profile-card text-center">
-        <%= image_tag("https://sumarcapacitacion.cl/wp-content/uploads/2016/01/logo-sence.gif")%>
-        <div class="profile-content">
-          <div class="profile-name">Sence
-            <p><%= button_to 'WebSite', 'www.lewagon.com', remote: true %></p>
-          </div>
-          <div class="profile-description">Sence es un organismo técnico del Estado, funcionalmente descentralizado, con personalidad jurídica de derecho público, que se relaciona con el Gobierno a través del Ministerio del Trabajo y Previsión Social.
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-	<div class="row text-center text-md-left">
-    <div class="col-md-3 col-lg-3 col-xl-4 mx-auto mt-3">
-      <div class="profile-card text-center">
-        <%= image_tag("https://media-exp1.licdn.com/dms/image/C4E0BAQGIgFfIB4L2vQ/company-logo_200_200/0/1555437741703?e=2159024400&v=beta&t=50eWQpw0AVswLddGZTlW9y6fXFjzt5O7vUyasQ5dEGA")%>
-        <div class="profile-content">
-          <div class="profile-name">Talento Digital
-            <p><%= button_to 'WebSite', 'www.talentodigitalparachile.cl', remote: true %></p>
-          </div>
-          <div class="profile-description">El compromiso de Talento Digital es garantizar y asegurar el perfil de nuestro/as egresado/as, para esto se realiza un proceso de Certificación
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-lg-3 col-xl-4 mx-auto mt-3">
-      <div class="profile-card text-center">
-        <%= image_tag("https://regaloslamour.cl/wp-content/uploads/2021/02/logo-footer-200x200.png")%>
-        <div class="profile-content">
-          <div class="profile-name">L'amour
-            <p><%= button_to 'WebSite', 'www.regaloslamour.cl', remote: true %></p>
-          </div>
-          <div class="profile-description">En L’amour regalos y detalles encontrarás todo lo que buscas para sorprender a esa persona especial y para cualquier tipo de ocasión.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-lg-3 col-xl-4 mx-auto mt-3">
-      <div class="profile-card text-center">
-        <%= image_tag("https://bci-cdn.azureedge.net/uploads/30d55611-8724-4efa-abf2-b1820cc7026a/original/logoBci.svg")%>
-        <div class="profile-content">
-          <div class="profile-name">BCI
-            <p><%= button_to 'WebSite', 'www.bci.cl', remote: true %></p>
-          </div>
-          <div class="profile-description">Con más de 75 años de historia en la banca chilena, Bci Wholesale & Investment Banking, cuenta con una trayectoria de prestigio y múltiples reconocimientos tanto en Chile como en el extranjero.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+<%= render 'shared/card-home' %>
 
 <br>
 
-<footer class="bg-dark text-white pt-5 pb-4">
-  <div class="container text-center text-md-left">
-    <div class="row text-center text-md-left">
-      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Te Ayudo.cl</h5>
-        <p>Somos tu apoyo en tus primeros pasos hacia la digitalización con un respaldo único, podrás expandir tu mercado dejando en nuestras manos la responsabilidad de potenciar tu marca y posicinar tu empresa a nivel global </p>
-      </div>
-
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">servicios</h5>
-        <p><%= link_to 'Brand Design/Strategy', "#", :class=>"btn btn-link"%></p>
-        <p><%= link_to 'Social Media/Management', "#", :class=>"btn btn-link"%></p>
-        <p><%= link_to 'Audience/Analytics',"#", :class=>"btn btn-link"%></p>
-        <p><%= link_to 'SEO',"#", :class=>"btn btn-link"%></p>
-        <p><%= link_to 'Copywriting',"#", :class=>"btn btn-link"%></p>
-        <p><%= link_to 'Website/Development',"#", :class=>"btn btn-link"%></p>
-      </div>
-
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Accesos</h5>
-        <p><%= link_to 'Login', new_user_session_path(@user), :class=>"btn btn-link"%></p>
-        <p><%= link_to 'Tu Cuenta', "#", :class=>"btn btn-link"%></p>
-        <p><%= link_to 'Reviews', "#", :class=>"btn btn-link"%></p>
-        <p><%= link_to 'Our Team', "#", :class=>"btn btn-link"%></p>
-      </div>
-
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contacto</h5>
-        <p><i class="fas fa-home mr-3"></i>Av.Green 701,Las Condes.CL</p>
-        <p><i class="fas fa-envelope mr-3"></i>contact@teayudo.cl</p>
-        <p><i class="fas fa-mobile-alt mr-3"></i>+569-76555443</p>
-        <p><i class="fas fa-phone mr-3"></i>+562-22233214</p>
-      </div>
-    </div>
-    <hr class="mb-4">
-    <div class="row align-items-center">
-      <div class="col-md-7 col-log-8">
-        <p> Copyright All rights reserved by:
-          <a href="#"><strong class="text-warning">Te ayudo</strong></a>
-        </p>
-      </div>
-
-      <div class="col-md-5 col-lg-4">
-        <div class="text-center text-md-right">
-          <ul class="list-unstyled list-inline">
-            <li class="list-inline-item">
-              <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-facebook"></i></a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-instagram"></i></a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-linkedin"></i></a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#" class="btn-floating btn-sm text-white"><i class="fab fa-twitter"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+<%= render 'shared/big-footer' %>
