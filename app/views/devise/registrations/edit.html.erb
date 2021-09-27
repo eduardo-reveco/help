@@ -23,6 +23,11 @@
                 hint: "Confirme su nueva contraseña",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :photo, as: :file,
+                required: true,
+                input_html: { class: ''},
+                label_html: { class: 'upload-photo'},
+                label: 'Selecciona tu foto de perfil' %>            
   </div>
 
   <div class="form-actions">

@@ -14,7 +14,7 @@
       <p class="card-text"><%= @service.description%></p>
       <h6 class="card-subtitle mb-2 text-muted">Reseñas (<%= @service.reviews.size%>)</h6>
       <h6 class="card-subtitle mb-2 text-muted">Contrataciones (<%= @service.bookings.size%>)</h6>
-        <% if !@service.bookings.find_by(user: current_user).present? %>
+      <% if !@service.bookings.find_by(user: current_user).present? && @service.user != current_user %>
           <%= link_to 'Contratar', service_bookings_path(@service), method: :post %>
         <% elsif @service.bookings.find_by(user: current_user).present? && !@service.reviews.find_by(user: current_user, service: @service).present? %>
           <%= simple_form_for [@service, @review] do |f| %>
@@ -22,11 +22,11 @@
                 <%= f.input :comment%>
                 <%= f.submit class: 'btn btn-primary' %>
         <% end %>
-        <% if current_user == @service.user_id %> 
+      <% end %> 
+        <% if current_user == @service.user %> 
           <%= link_to 'Eliminar', profile_path(@service), method: :delete %>
           <%= link_to 'Editar', edit_service_path(@service)%>  
         <% end %>
-      <% end %> 
     </div>
   </div>
 </div>
