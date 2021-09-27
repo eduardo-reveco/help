@@ -12,30 +12,35 @@
     <% end %>
 
     <%= f.input :password,
-                hint: "Ingrese su contraseña actual",
+                label: "Ingrese su contraseña actual:",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
-                hint: "Ingrese su nueva contraseña",
+                label: "Ingrese su nueva contraseña:",
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "Confirme su nueva contraseña",
+                label: "Confirme su nueva contraseña:",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Guardar los cambios" %>
+    <%= f.button :submit, "Guardar cambios", class:"btn btn-primary new-user-btn mb-2 mt-3" %>
   </div>
+
 <% end %>
+
+
 
 <p><%= link_to "Dar de baja mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro de querer dar de baja tu cuenta?" }, method: :delete %></p>
 
-<%= link_to "Mi perfil", :back %>
-</div>
+<div class="form-actions">
+    <%= f.button :submit, "Guardar cambios", class:"btn btn-primary new-user-btn mb-2 mt-3" %>
+  </div>
 
-<%= link_to "Back", :back %>
+<%= link_to "Volver a mi perfil", :back %>
+</div>
 
 <hr class="mb-4">
 
