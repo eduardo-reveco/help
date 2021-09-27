@@ -60,12 +60,10 @@
   </div>
 </div>
 <br>
-<div class="container justify-content-center">
-  <form class="form-inline">
-    <%= form_tag services_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form-control ml-auto input-custom", placeholder: "Encuentra un servicio "%>
-      <%= submit_tag "Buscar", class: "btn btn-primary btn-search-home" %>
-    <% end %>
+<div class="container">
+  <form action="/services" accept-charset="UTF-8" method="get">
+    <input type="text" name="query" id="query" class="form-control" placeholder="Encuentra un servicio ">
+    <input type="submit" name="commit" value="Buscar" class="btn btn-primary btn-search-home" data-disable-with="Buscar">
   </form>
 </div>
 <hr class="mb-4">
