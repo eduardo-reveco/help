@@ -12,10 +12,10 @@
       <h5 class="card-title"><%= @service.name%></h5>
       <h6 class="card-subtitle mb-2 text-muted">$<%= @service.price%></h6>
       <p class="card-text"><%= @service.description%></p>
-      <h6 class="card-subtitle mb-2 text-muted">Reseñas (<%= @service.reviews.size%>)</h6>
-      <h6 class="card-subtitle mb-2 text-muted">Contrataciones (<%= @service.bookings.size%>)</h6>
+      <p class="card-subtitle mb-2 text-muted"><%= @service.reviews.size%> Reseña(s)</p>
+      <p class="card-subtitle mb-2 text-muted"><%= @service.bookings.size%> Contratacion(es)</p>
       <% if !@service.bookings.find_by(user: current_user).present? && @service.user != current_user %>
-          <%= link_to 'Contratar', service_bookings_path(@service), method: :post %>
+          <%= link_to 'Contratar', service_bookings_path(@service), method: :post, class:"btn btn-primary edit-btn-show mb-2" %>
         <% elsif @service.bookings.find_by(user: current_user).present? && !@service.reviews.find_by(user: current_user, service: @service).present? %>
           <%= simple_form_for [@service, @review] do |f| %>
                 <%= f.input :rating, collection: 1..5 %>
@@ -24,44 +24,48 @@
         <% end %>
       <% end %> 
         <% if current_user == @service.user %> 
-          <%= link_to 'Eliminar', profile_path(@service), method: :delete %>
-          <%= link_to 'Editar', edit_service_path(@service)%>  
+          <%= link_to 'Eliminar', profile_path(@service), method: :delete,class:"btn btn-primary edit-btn-show mb-2 mt-4" %>
+          <%= link_to 'Editar', edit_service_path(@service), class:"btn btn-primary edit-btn-show mb-2 mt-4"%>  
         <% end %>
     </div>
   </div>
 </div>
 
 <br>
-
-
+  
   <div class="container">
-     <% @service.reviews.each do |review| %>
-     <div class="bg-white p-3 mb-4">
-       <div class="d-flex justify-content-between">
-         <div class="d-flex">
-           <div> 
-             <i class="fas fa-user-circle h1"></i>
-           </div>
-           <div> 
-             <p><%= review.user.email %>  </p>
-             <p><%= review.created_at.strftime('%d/%m/%y - %H:%M')%></p>
+    <h4 class="mt-4">Reseñas del servicio:</h4>
+    <% if @service.reviews.present? %>
+      <% @service.reviews.each do |review| %>
+      <div class="bg-white p-3 mb-4 mt-4">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex">
+            <div> 
+              <i class="fas fa-user-circle h1 "></i>
             </div>
-         </div>
-         <div> 
-            <% review.rating.times do %>
-          <i class="fas fa-star"></i>
-        <% end %>
-        <% (5 - review.rating).times do %>
-          <i class="far fa-star"></i>
-        <% end %>
+            <div> 
+              <h6><strong><%= review.user.first_name %> <%= review.user.last_name %></strong> (<%= review.user.email %>)</h6>
+              <p><%= review.created_at.strftime('%d/%m/%y - %H:%M')%></p>
+              </div>
+          </div>
+          <div> 
+              <% review.rating.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
 
-         </div>
-       </div>
-       <div> 
-         <h5 class=""><%= review.comment%></h5>
-       </div>
-     </div>
-     <% end %> 
+          </div>
+        </div>
+        <div> 
+          <p class=""><%= review.comment%></p>
+        </div>
+      </div>
+      <% end %> 
+    <% else %>  
+      <p><%= "Aun no tienes reseñas" %></p>
+    <% end %>
   </div>
 
   <hr class="mb-4">
