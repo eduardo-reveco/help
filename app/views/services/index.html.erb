@@ -1,7 +1,7 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/teayudo2049/image/upload/v1631127364/index_-logo_cwwpjh.jpg);">
   <div class="container">
-    <h1> <strong>Todos los servicios</strong> || <strong>Elige el tuyo</strong>!</h1>
+    <h1> <strong>Servicios disponibles</strong>!</h1>
   </div>
 </div>
 <br>
@@ -14,33 +14,40 @@
 </div>
 <br>
 </div>
+
+
 <div class="container">
-  <% @services.each do |service| %>
-  <% if current_user && service.user_id == current_user.id %>
-  <% end%>
-    <div class="card-product mt-4"></h2>
-        <% if current_user && current_user.photo.attached? && current_user == service.user%>
-          <%= cl_image_tag current_user.photo.key %>
-        <% elsif service.user.photo.present? %>
-          <%= cl_image_tag service.user.photo.key %>
-        <% else %>
-          <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
-        <% end %>
-      <div class="card-product-infos">
-        <h2><%= service.name %></h2>
-        <p><%= service.description %></p>
-        <p><strong><%= service.price %></strong></p>
-        <p><strong>Reseñas (<%= service.reviews.size %>)</strong></p>
-        <%= link_to 'ver detalles', service_path(service), class:"btn btn-primary"%>
-        <% service.average.times do %>
-          <i class="fas fa-star"></i>
-        <% end %>
-        <% (5 - service.average).times do %>
-          <i class="far fa-star"></i>
-        <% end %>
+  
+    <div class="row">
+    <% @services.each do |service| %>
+      <div class="col-md-4">
+        <% if current_user && service.user_id == current_user.id %>
+        <% end%>
+        <div class="card-product mt-4">
+          <% if current_user && current_user.photo.attached? && current_user == service.user%>
+            <%= cl_image_tag current_user.photo.key %>
+          <% elsif service.user.photo.present? %>
+            <%= cl_image_tag service.user.photo.key %>
+          <% else %>
+            <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
+          <% end %>
+          <div class="card-product-infos mt-4">
+            <h2><strong><%= service.name %></strong></h2>
+            <p><strong>$ <%= service.price %></strong></p>
+            <p><strong>Reseñas (<%= service.reviews.size %>)</strong></p>
+            <% service.average.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - service.average).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+            <%= link_to 'Detalle', service_path(service), class:"btn btn-primary btn btn-primary edit-btn mb-2"%>
+          </div>
+        </div>
+      
       </div>
+    <% end %>
     </div>
-  <% end %>
 </div>
 
 <hr class="mb-4">
