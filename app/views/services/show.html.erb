@@ -1,3 +1,5 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/teayudo2049/image/upload/v1632948666/banner_logo_2_mse9ja.jpg);">
+</div>
 <div class="container">
   <div class="row", style="margin-top: 100px;">
     <div class="col-sm-4">
@@ -5,7 +7,7 @@
         <%= cl_image_tag @service.photo.key, :width=> 200 %>
       <% else %>
         <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
-      <% end %> 
+      <% end %>
     </div>
 
     <div class="col-sm-8">
@@ -22,17 +24,17 @@
                 <%= f.input :comment%>
                 <%= f.submit class: 'btn btn-primary' %>
         <% end %>
-      <% end %> 
-        <% if current_user == @service.user %> 
+      <% end %>
+        <% if current_user == @service.user %>
           <%= link_to 'Eliminar', profile_path(@service), method: :delete,class:"btn btn-primary edit-btn-show mb-2 mt-4" %>
-          <%= link_to 'Editar', edit_service_path(@service), class:"btn btn-primary edit-btn-show mb-2 mt-4"%>  
+          <%= link_to 'Editar', edit_service_path(@service), class:"btn btn-primary edit-btn-show mb-2 mt-4"%>
         <% end %>
     </div>
   </div>
 </div>
 
 <br>
-  
+
   <div class="container">
     <h4 class="mt-4">Reseñas del servicio:</h4>
     <% if @service.reviews.present? %>
@@ -40,15 +42,15 @@
       <div class="bg-white p-3 mb-4 mt-4">
         <div class="d-flex justify-content-between">
           <div class="d-flex">
-            <div> 
+            <div>
               <i class="fas fa-user-circle h1 "></i>
             </div>
-            <div> 
+            <div>
               <h6><strong><%= review.user.first_name %> <%= review.user.last_name %></strong> (<%= review.user.email %>)</h6>
               <p><%= review.created_at.strftime('%d/%m/%y - %H:%M')%></p>
               </div>
           </div>
-          <div> 
+          <div>
               <% review.rating.times do %>
             <i class="fas fa-star"></i>
           <% end %>
@@ -58,12 +60,12 @@
 
           </div>
         </div>
-        <div> 
+        <div>
           <p class=""><%= review.comment%></p>
         </div>
       </div>
-      <% end %> 
-    <% else %>  
+      <% end %>
+    <% else %>
       <p><%= "Aun no tienes reseñas" %></p>
     <% end %>
   </div>
