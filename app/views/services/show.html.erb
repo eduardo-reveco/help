@@ -45,19 +45,9 @@
       <div class="bg-white p-3 mb-4 mt-4">
         <div class="d-flex justify-content-between">
           <div class="d-flex">
-<<<<<<< HEAD
-            <div>
-              <i class="fas fa-user-circle h1 "></i>
-            </div>
-            <div>
-              <h6><strong><%= review.user.first_name %> <%= review.user.last_name %></strong> (<%= review.user.email %>)</h6>
-              <p><%= review.created_at.strftime('%d/%m/%y - %H:%M')%></p>
-              </div>
-=======
             <div> 
               <h6><strong><%= review.user.first_name %> <%= review.user.last_name %></strong> (<%= review.user.email %>) creado el <%= review.created_at.strftime('%d/%m/%y - %H:%M')%></h6>
             </div>
->>>>>>> master
           </div>
           <div>
               <% review.rating.times do %>
