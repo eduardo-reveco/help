@@ -14,7 +14,7 @@
 		transform-style: preserve-3d;
 		position: relative;
 		top: 12px;
-		left: 12px;
+		left: 20px;
 		right: 12px;
 		bottom: 12px;
 		transition: all 0.3s ease-in;
@@ -32,7 +32,7 @@
 			opacity: 1;
 			transform: translateX(-50%) translateY(-60%);
 		}
-		
+
 	}
 	img {
 		width: 100px;
@@ -70,7 +70,7 @@
 		letter-spacing: 1px;
 		text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 	}
-	
+
 }
 @media only screen and (max-width:990px) {
 	.box {
