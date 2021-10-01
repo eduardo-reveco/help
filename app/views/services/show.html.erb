@@ -11,18 +11,21 @@
     </div>
 
     <div class="col-sm-8">
-      <h5 class="card-title"><%= @service.name%></h5>
-      <h6 class="card-subtitle mb-2 text-muted">$<%= @service.price%></h6>
-      <p class="card-text"><%= @service.description%></p>
+      <h3 class="card-title"><strong><%= @service.name%></strong></h3>
+      <h5 class="card-subtitle mb-2 text-muted mt-4">Precio: $<%= @service.price%></h5>
+      <p class="card-text mt-3">Descripción: <%= @service.description%></p>
       <p class="card-subtitle mb-2 text-muted"><%= @service.reviews.size%> Reseña(s)</p>
       <p class="card-subtitle mb-2 text-muted"><%= @service.bookings.size%> Contratacion(es)</p>
       <% if !@service.bookings.find_by(user: current_user).present? && @service.user != current_user %>
           <%= link_to 'Contratar', service_bookings_path(@service), method: :post, class:"btn btn-primary edit-btn-show mb-2" %>
         <% elsif @service.bookings.find_by(user: current_user).present? && !@service.reviews.find_by(user: current_user, service: @service).present? %>
           <%= simple_form_for [@service, @review] do |f| %>
-                <%= f.input :rating, collection: 1..5 %>
-                <%= f.input :comment%>
-                <%= f.submit class: 'btn btn-primary' %>
+                <%= f.input :rating,
+                            collection: 1..5,
+                            label: "Calificación"%>
+                <%= f.input :comment,
+                            label: "Deja tu comentrio" %>
+                <%= f.button :submit, "Guardar", class:"btn btn-primary edit-btn mb-2 mt-3"%>
         <% end %>
       <% end %>
         <% if current_user == @service.user %>
@@ -36,12 +39,13 @@
 <br>
 
   <div class="container">
-    <h4 class="mt-4">Reseñas del servicio:</h4>
+    <h4 class="mt-4">Reseñas:</h4>
     <% if @service.reviews.present? %>
       <% @service.reviews.each do |review| %>
       <div class="bg-white p-3 mb-4 mt-4">
         <div class="d-flex justify-content-between">
           <div class="d-flex">
+<<<<<<< HEAD
             <div>
               <i class="fas fa-user-circle h1 "></i>
             </div>
@@ -49,6 +53,11 @@
               <h6><strong><%= review.user.first_name %> <%= review.user.last_name %></strong> (<%= review.user.email %>)</h6>
               <p><%= review.created_at.strftime('%d/%m/%y - %H:%M')%></p>
               </div>
+=======
+            <div> 
+              <h6><strong><%= review.user.first_name %> <%= review.user.last_name %></strong> (<%= review.user.email %>) creado el <%= review.created_at.strftime('%d/%m/%y - %H:%M')%></h6>
+            </div>
+>>>>>>> master
           </div>
           <div>
               <% review.rating.times do %>
