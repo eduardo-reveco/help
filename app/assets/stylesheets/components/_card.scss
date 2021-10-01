@@ -2,7 +2,7 @@
   overflow: hidden;
   height: 140px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px #d2acac;
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -12,7 +12,7 @@
   overflow: hidden;
   height: 300px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px #d2acac;
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -64,15 +64,20 @@
 }
 
 .dropdown-item-one {
-  color: #E67E22;
+  color: #FF5C58;
   font-size: 13px;
 }
 
 .dropdown-item-box {
   border-radius: 3px;
-  border-color: #E67E22;
+  border-color: #FF5C58;
 }  
   
 .photo-mi-servicio {
   height:100%;
 } 
+
+
+.color-footer {
+  background: #424c71;
+}

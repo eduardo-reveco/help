@@ -15,8 +15,8 @@
         <% end %>
       </div>
       <div class="card-product-infos col-sm-5">
-        <h3><strong>Mis Datos</strong></h3>
-        <p class="mt-3"><%= current_user.first_name %> <%= current_user.last_name%></p>
+        <h3><strong>Mis Datos</strong></h3> 
+        <p class="mt-3"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize%></p>
         <p><%= current_user.email %></p>
       </div>
       <div class="col-sm-3">
@@ -39,8 +39,8 @@
               <% end %>
             </div>
             <div class="card-product-infos col-sm-4">
-              <h2><strong><%= service.name %></strong></h2>
-              <p>$<strong> <%= service.price %></strong></p>
+              <h2><strong><%= service.name.capitalize %></strong></h2>
+              <p>$<strong> <%= service.price %></strong></p> 
               <p><strong>Reseñas: <%= service.reviews.count %></strong></p>
               <p><strong>Contrataciones: <%= service.reviews.count %></strong></p>
               <% ratings = [] %>
@@ -93,8 +93,8 @@
             <% end %>
           </div>
           <div class="card-product-infos col-sm-6">
-            <h2>Nombre: <%= booking.service.name %></h2>
-            <p>Precio: $ <strong><%= booking.service.price %></strong></p>
+            <h2>Nombre: <%= booking.service.name.capitalize %></h2>
+            <p>Precio: $ <strong><%= booking.service.price %></strong></p> 
             <p>Contacto: <%= booking.service.user.email%></p>
           </div>
 
@@ -113,6 +113,6 @@
 </div>
 
 
-<hr class="mb-4">
+<br>
 
-<%= render 'shared/mini-footer' %>
+<%= render 'shared/mini-footer'%>
