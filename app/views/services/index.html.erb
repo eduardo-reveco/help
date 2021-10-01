@@ -8,8 +8,8 @@
 
 <div class="container">
   <form action="/services" accept-charset="UTF-8" method="get" class="form-inline-v2">
-    <input type="text" name="query" id="query" class="form-control" placeholder="Encuentra un servicio" style="margin-right:15px">
-    <input type="submit" name="commit" value="Buscar" class="btn btn-primary btn-search-home" data-disable-with="Buscar">
+    <input type="text" name="query" id="query" class="form-control form-search" placeholder="Encuentra un servicio" style="margin-right:15px">
+    <input type="submit" name="commit" value="Buscar" class="btn btn-primary btn-search-home btn-search-teayudo col-2" data-disable-with="Buscar">
   </form>
 </div>
 <br>
@@ -30,7 +30,7 @@
             <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
           <% end %> 
           <div class="card-product-infos mt-4">
-            <h2><strong><%= service.name %></strong></h2>
+            <h2><strong><%= service.name.capitalize %></strong></h2>
             <p><strong>$ <%= service.price %></strong></p>
             <p><strong>Reseñas (<%= service.reviews.size %>)</strong></p>
             <% service.average.times do %>

@@ -9,9 +9,9 @@
     </div>
 
     <div class="col-sm-8">
-      <h3 class="card-title"><strong><%= @service.name%></strong></h3>
+      <h3 class="card-title"><strong><%= @service.name.capitalize%></strong></h3>
       <h5 class="card-subtitle mb-2 text-muted mt-4">Precio: $<%= @service.price%></h5>
-      <p class="card-text mt-3">Descripción: <%= @service.description%></p>
+      <p class="card-text mt-3">Descripción: <%= @service.description.capitalize%></p>
       <p class="card-subtitle mb-2 text-muted"><%= @service.reviews.size%> Reseña(s)</p>
       <p class="card-subtitle mb-2 text-muted"><%= @service.bookings.size%> Contratacion(es)</p>
       <% if !@service.bookings.find_by(user: current_user).present? && @service.user != current_user %>
@@ -23,7 +23,7 @@
                             label: "Calificación"%>
                 <%= f.input :comment,
                             label: "Deja tu comentrio" %>
-                <%= f.button :submit, "Guardar", class:"btn btn-primary edit-btn mb-2 mt-3"%>
+                <%= f.button :submit, "Guardar", class:"btn btn-primary edit-btn mb-2 mt-3 col-3"%>
         <% end %>
       <% end %> 
         <% if current_user == @service.user %> 
@@ -44,7 +44,7 @@
         <div class="d-flex justify-content-between">
           <div class="d-flex">
             <div> 
-              <h6><strong><%= review.user.first_name %> <%= review.user.last_name %></strong> (<%= review.user.email %>) creado el <%= review.created_at.strftime('%d/%m/%y - %H:%M')%></h6>
+              <h6><strong><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></strong> (<%= review.user.email %>) creado el <%= review.created_at.strftime('%d/%m/%y - %H:%M')%></h6>
             </div>
           </div>
           <div> 
