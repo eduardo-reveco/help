@@ -84,13 +84,8 @@
     <% else %>
       <h4 class= "mt-4">Mis reservas:</h4>
       <% @my_bookings.each do |booking| %>
-<<<<<<< HEAD
-        <div class="card-product mt-3 col-sm-12">
-          <div class="col-sm-3">
-=======
         <div class="card-product mt-4 col-sm-12">
           <div class="col-sm-3 photo-mi-servicio"> 
->>>>>>> master
             <% if booking.service.photo.attached? %>
               <%= cl_image_tag booking.service.photo.key %>
             <% else %>
