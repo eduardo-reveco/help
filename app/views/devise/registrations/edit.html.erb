@@ -1,4 +1,6 @@
 
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/teayudo2049/image/upload/v1632948666/banner_logo_2_mse9ja.jpg);">
+</div>
 <div class="container mt-5">
   <h2>Editar mi usuario:<% resource_name.to_s.humanize %></h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -27,7 +29,7 @@
                   required: true,
                   input_html: { class: ''},
                   label_html: { class: 'upload-photo'},
-                  label: 'Selecciona tu foto de perfil' %>            
+                  label: 'Selecciona tu foto de perfil' %>
     </div>
 
     <div class="form-actions">
@@ -36,7 +38,7 @@
   <% end %>
   <%= link_to "Atras", :back, class:"btn btn-primary new-user-btn mb-2 mt-3" %>
   <p><%= link_to "Dar de baja mi cuenta", registration_path(resource_name), class:"btn btn-danger", data: { confirm: "Estas seguro de querer dar de baja tu cuenta?" }, method: :delete %></p>
-</div>  
+</div>
 
 <hr class="mb-4">
 
