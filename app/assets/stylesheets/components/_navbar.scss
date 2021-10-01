@@ -1,11 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: transparent;
-  transition: 0.5s background-color ease;
+  transition: 0.5s background-color linear-gradient( #060a1c, #94a5e3);
 }
 
 .navbar-lewagon-white {
-  background-color: #343A40;
+  background-color: #424c71;
 }
   
 
@@ -25,3 +25,4 @@
   color: white;
   border-color: white;
 }
+
