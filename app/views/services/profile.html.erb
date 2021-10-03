@@ -1,5 +1,5 @@
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/teayudo2049/image/upload/v1631127364/index_-logo_cwwpjh.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://res.cloudinary.com/teayudo2049/image/upload/v1633108647/my_profile2_z2k2dp.jpg);">
   <div class="container">
     <h1> <strong>Mi Perfil</strong> </h1>
   </div>
@@ -8,15 +8,15 @@
   <!--  profile usuario   -->
 
     <div class="card-product-misdatos mt-4 col-sm-12">
-      <div class="col-sm-4 card-product-fotomisdatos"> 
+      <div class="col-sm-4 card-product-fotomisdatos">
         <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key %>
         <% else %>
-        <% end %> 
+        <% end %>
       </div>
       <div class="card-product-infos col-sm-5">
         <h3><strong>Mis Datos</strong></h3> 
-        <p class="mt-3"><%= current_user.first_name %> <%= current_user.last_name%></p>
+        <p class="mt-3"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize%></p>
         <p><%= current_user.email %></p>
       </div>
       <div class="col-sm-3">
@@ -26,87 +26,93 @@
 
   <!--  servicios ofrecidos por el usuario   -->
 
-    <h4 class= "mt-4">Mis servicios ofrecidos:</h4>
-    <% @my_services.each do |service| %>
-      <div class="card-product mt-3 col-sm-12">
-        <div class="col-sm-3"> 
-          <% if service.photo.attached? %>
-            <%= cl_image_tag service.photo.key %>
-          <% else %>
-            <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
-          <% end %> 
-        </div>
-        <div class="card-product-infos col-sm-3">
-          <h2><strong><%= service.name %></strong></h2>
-          <p>$<strong> <%= service.price %></strong></p> 
-          <p><strong>N° de rewiews: <%= service.reviews.count %></strong></p>
-          <% ratings = [] %>
-          <% average = 0 %>
-          <% service.reviews.each do | review |  %>
-            <% ratings << review.rating %>
-            <% average = ratings.sum/ratings.count %>
-          <% end %>
-          <div> 
-            <% average.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-            <% (5 - average).times do %>
-              <i class="far fa-star"></i>
-            <% end %>
-          </div> 
-        </div>
+    <h4 class= "mt-4">Mis servicios:</h4>
+    <div class="row">
+      <% @my_services.each do |service| %>
+        <div class="col-md-6">
+          <div class="card-product card-product-foto mt-3 col-sm-12">
+            <div class="col-sm-4 photo-mi-servicio">
+              <% if service.photo.attached? %>
+                <%= cl_image_tag service.photo.key %>
+              <% else %>
+                <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
+              <% end %>
+            </div>
+            <div class="card-product-infos col-sm-4">
+              <h2><strong><%= service.name.capitalize %></strong></h2>
+              <p>$<strong> <%= service.price %></strong></p> 
+              <p><strong>Reseñas: <%= service.reviews.count %></strong></p>
+              <p><strong>Contrataciones: <%= service.reviews.count %></strong></p>
+              <% ratings = [] %>
+              <% average = 0 %>
+              <% service.reviews.each do | review |  %>
+                <% ratings << review.rating %>
+                <% average = ratings.sum/ratings.count %>
+              <% end %>
+              <div>
+                <% average.times do %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+                <% (5 - average).times do %>
+                  <i class="far fa-star"></i>
+                <% end %>
+              </div>
+            </div>
 
-        <div class="card-product-infos col-sm-3">
-          <% if service.bookings.count == 0 %>
-            <h5>Sin reservas</h5>
-          <% else %>
-            <h5>Reserva/s:</h5>
-            <% service.bookings.each do |booking| %>
-            <p>Reservado por: <%= booking.user.first_name%> <%= booking.user.last_name%></p>
-            <p></p>
-            <p>Contacto: <%= booking.user.email%></p>
-            <% end %>
-          <% end %>
+            <div class="dropdown show col-sm-4 align-self-start mt-2">
+              <a class="btn edit-btn mb-2 dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown"> Opciones </a>
+              <div class="dropdown-menu dropdown-item-box" aria-labelledby="dropdownMenuLink">
+                <%= link_to 'Detalle', service_path(service), class:"dropdown-item dropdown-item-one btn btn-secondary"%>
+                <%= link_to 'Editar', edit_service_path(service), class:"dropdown-item custom-drop-down-item dropdown-item-one btn btn-secondary"%>
+                <%= link_to 'Dar de baja', service_path(service), method: :delete, data: { confirm: "Estas seguro de querer borrar este servicio?"}, class:"dropdown-item btn dropdown-item-one btn-secondary"%>
+              </div>
+            </div>
+          </div>
         </div>
+      <% end %>
+    </div>
 
-        <div class="col-sm-3">
-          <%= link_to 'Editar el servicio', edit_service_path(service), class:"btn btn-primary edit-btn mb-2"%>
-          <%= link_to 'Dar de baja el servicio', service_path(service), method: :delete, data: { confirm: "Estas seguro de querer borrar este servicio?"}, class:"btn btn-primary delete-btn"%>
-        </div>
-      </div>
-    <% end %>
+
+
+
+
+
+
 
     <% if @my_bookings.count == 0 %>
       <h4 class="mt-3">Que esperas para contratar un servicio!</h4>
     <% else %>
-      <h4 class= "mt-4">Mis servicios reservados:</h4>
+      <h4 class= "mt-4">Mis reservas:</h4>
       <% @my_bookings.each do |booking| %>
-        <div class="card-product mt-3 col-sm-12">
-          <div class="col-sm-3"> 
+        <div class="card-product mt-4 col-sm-12">
+          <div class="col-sm-3 photo-mi-servicio"> 
             <% if booking.service.photo.attached? %>
               <%= cl_image_tag booking.service.photo.key %>
             <% else %>
               <%= cl_image_tag("Marketing-de-Servicios-1_xgaiwu") %>
-            <% end %> 
+            <% end %>
           </div>
           <div class="card-product-infos col-sm-6">
-            <h2>Nombre: <%= booking.service.name %></h2>
-            <p>Descripción: <%= booking.service.description %></p>
+            <h2>Nombre: <%= booking.service.name.capitalize %></h2>
             <p>Precio: $ <strong><%= booking.service.price %></strong></p> 
             <p>Contacto: <%= booking.service.user.email%></p>
           </div>
 
-          <div class="col-sm-3">
-            <%= link_to 'Dar de baja la reserva', booking_path(booking), method: :delete, data: { confirm: "Estas seguro de querer dar de baja esta reserva?"}, class:"btn btn-primary delete-btn"%>
+          <div class="dropdown show col-sm-3 align-self-start mt-2">
+            <a class="btn edit-btn mb-2 dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown"> Opciones </a>
+            <div class="dropdown-menu dropdown-item-box" aria-labelledby="dropdownMenuLink">
+              <%= link_to 'Dar de baja la reserva', booking_path(booking), method: :delete, data: { confirm: "Estas seguro de querer dar de baja esta reserva?"}, class:"dropdown-item dropdown-item-one btn btn-secondary"%>
+              <%= link_to 'Ver Detalles', service_path(booking.service), class:"dropdown-item dropdown-item-one btn btn-secondary"%>
+            </div>
           </div>
         </div>
-      <% end %>        
+      <% end %>
     <% end %>
   </div>
 
 </div>
 
 
-<hr class="mb-4">
+<br>
 
-<%= render 'shared/mini-footer' %>
+<%= render 'shared/mini-footer'%>
