@@ -1,79 +1,69 @@
-.box {
-	background: #fdfdfd;
-	font-family: 'Raleway', sans-serif;
-	overflow: hidden;
-	position: relative;
-	transition: all 0.4s ease-in-out;
-	&:before {
-		content: "";
-		background: #fff;
-		box-shadow: 0 0 50px rgba(0,0,0,0.5) inset;
-		border-radius: 0 20px;
-		opacity: 0;
-		transform: perspective(1000px) rotateX(90deg);
-		transform-style: preserve-3d;
-		position: relative;
-		top: 12px;
-		left: 12px;
-		right: 12px;
-		bottom: 12px;
-		transition: all 0.3s ease-in;
+.card-flip {
+	perspective: 1000px;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+	&:hover .flip,
+	&.hover .flip {
+	  transform: rotateY(180deg);
 	}
-	&:hover {
-		&:before {
-			opacity: 1;
-			transform: perspective(1000px) rotateX(0);
-		}
-		img {
-			opacity: 0.5;
-			transform: scale(1.1);
-		}
-		.box-content {
-			opacity: 1;
-			transform: translateX(-50%) translateY(-60%);
-		}
-		
-	}
-	img {
-		width: 100px;
-		height: 100px;
-		display: block;
-		margin: auto;
-		transition: all 0.3s ease 0s;
-	}
-	.box-content {
-		color: #fff;
-		background: #ff8412;
-		text-align: center;
-		width: 80%;
-		padding: 15px 10px;
-		border-radius: 0 20px;
-		opacity: 0;
-		transform: translateX(-50%) translateY(-200%);
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		z-index: 1;
-		transition: all 0.3s ease-out;
-	}
-	.title {
-		font-size: 22px;
-		font-weight: 700;
-		text-transform: uppercase;
-		text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-		margin: 0 0 5px;
-	}
-	.post {
-		font-size: 16px;
-		font-style: italic;
-		text-transform: capitalize;
-		letter-spacing: 1px;
-		text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-	}
-	
 }
-@media only screen and (max-width:990px) {
-	.box {
-		margin: 0 0 30px;
-	}
+  
+.card-flip {
+  width: 230px;
+  height: 150px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+}
+.front {
+  width: 190px;
+  height: 140px;
+  padding-top: 15px;
+  padding-left: 20px;
+  background-color: white;
+  h4 {
+	font-size: 16px;
+	text-align: center;
+  }
+}
+.back {
+  width: 230px;
+  height: 150px;
+}
+
+.flip {
+transition: 0.6s;
+transform-style: preserve-3d;
+position: relative;
+}
+
+.front {
+  width: 210px;
+  height: 150px;
+  padding-bottom: 15px;
+}
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 188, 4);
+  align-items: center;
+  h4 {
+	color: white;
+	padding: 30px;
+  }
+  a {
+	color: white;
+  }
+
+}
+
+.front {
+z-index: 2;
+transform: rotateY(0deg);
+}
+
+.back {
+transform: rotateY(180deg);
 }
