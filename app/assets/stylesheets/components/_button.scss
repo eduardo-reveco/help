@@ -57,6 +57,39 @@
     border-radius: 4px;
 }
 
+.btn-search-teayudo:hover{
+    background-color: #FE8F8F;
+    border: none;
+}
+
 .form-search{
     border-radius: 4px;
+}
+
+.form-search:hover{
+    background-color: #FF5C58;
+}
+
+.btn-accesos{
+    color: white;
+    text-decoration: none;
+}
+
+.btn-accesos:hover{
+    color: #FF5C58;
+    text-decoration: none;
+}
+
+.nombre-acceso{
+    color: #FF5C58;
+}
+
+.dar-de-baja{
+    color: red;
+    text-decoration: none;
+}
+
+.dar-de-baja:hover{
+    color: #424c71;
+    text-decoration: none;
 }
