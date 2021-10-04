@@ -2,31 +2,31 @@
   <div class="container text-center text-md-left">
     <div class="row text-center text-md-left">
 
-      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Quienes Somos</h5>
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold nombre-acceso">Quienes Somos</h5>
         <p>Te ayudo es la comunidad de especialistas que te apoyara en tu camino a la digitalizacion. Podrás expandir tu mercado, potenciar tu marca y posicionar tu empresa a nivel global.</p>
         <p><i class="fas fa-home mr-3"></i>Av.Green 701,Las Condes.CL</p>
         <p><i class="fas fa-envelope mr-3"></i>contact@teayudo.cl</p>
         <p><i class="fas fa-mobile-alt mr-3"></i>+569-76555443</p>
       </div>
 
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">servicios</h5>
+      <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold nombre-acceso">servicios</h5>
         <p><%='Creacion de Paginas web'%></p>
         <p><%='Diseño Grafico'%></p>
         <p><%='Marketing digital'%></p>
-        <p><%='Administracion de Redes Sociales'%></p>
+        <p><%='Administración de Redes Sociales'%></p>
         <p><%='Posicionamiento SEO'%></p>
         <p><%='Analisis de datos del negocio'%></p>
       </div>
 
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Accesos</h5>
-        <p><%= link_to 'Ingresar', new_user_session_path(@user), :class=>"btn btn-link"%></p>
-        <p><%= link_to 'Mi Perfil', profile_path, :class=>"btn btn-link"%></p>
-        <p><%= link_to 'Editar Perfil', edit_user_registration_path, :class=>"btn btn-link"%></p>
-        <p><%= link_to 'Ver Servicios', services_path, :class=>"btn btn-link"%></p>
-        <p><%= link_to 'Crea un Servicio', new_service_path, :class=>"btn btn-link"%></p>
+      <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold nombre-acceso">Accesos</h5>
+        <%= link_to 'Ingresar', new_user_session_path(@user), :class=>"btn btn-link btn-accesos"%>
+        <%= link_to 'Mi Perfil', profile_path, :class=>"btn btn-link btn-accesos"%>
+        <%= link_to 'Editar Perfil', edit_user_registration_path, :class=>"btn btn-link btn-accesos"%>
+        <%= link_to 'Ver Servicios', services_path, :class=>"btn btn-link btn-accesos"%>
+        <%= link_to 'Crea un Servicio', new_service_path, :class=>"btn btn-link btn-accesos"%>
       </div>
 
     </div>
