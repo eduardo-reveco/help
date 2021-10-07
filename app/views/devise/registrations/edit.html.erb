@@ -14,7 +14,7 @@
       <% end %>
 
       <%= f.input :password,
-                  label: "Ingrese su contraseña actual:",
+                  label: "Ingrese nueva contraseña:",
                   required: false,
                   placeholder: 'solo para editar contraseña',
                   input_html: { autocomplete: "new-password" } %>
@@ -25,12 +25,15 @@
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :current_password,
                   label: "Confirme su nueva contraseña:",
+                  input_html: { autocomplete: "nueva contraseña" } %>
+      <%= f.input :current_password,
+                  label: "Confirme su contraseña:",
                   required: true,
-                  input_html: { autocomplete: "current-password" } %>
+                  input_html: { autocomplete: "contraseña actual" } %>
       <%= f.input :photo, as: :file,
                   required: true,
                   input_html: { class: ''},
-                  label_html: { class: 'upload-photo'},
+                  label_html: { class: 'subir foto'},
                   label: 'Selecciona una nueva foto de perfil' %>
     </div>
 
@@ -38,7 +41,7 @@
       <%= f.button :submit, "Guardar", class:"btn btn-primary new-user-btn mb-2 mt-2" %> <%= link_to "Atrás", :back, class:"btn btn-primary new-user-btn mb-2 mt-2" %>
     </div>
   <% end %>
-  
+
   <%= link_to "Dar de baja mi cuenta", registration_path(resource_name), class:"dar-de-baja", data: { confirm: "Estas seguro de querer dar de baja tu cuenta?" }, method: :delete %>
 </div>
 
