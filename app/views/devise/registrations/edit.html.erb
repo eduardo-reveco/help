@@ -14,21 +14,21 @@
       <% end %>
 
       <%= f.input :password,
-                  label: "Ingrese su contraseña actual:",
+                  label: "Ingrese nueva contraseña:",
                   required: false,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "nueva contraseña" } %>
       <%= f.input :password_confirmation,
                   required: false,
-                  label: "Ingrese su nueva contraseña:",
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :current_password,
                   label: "Confirme su nueva contraseña:",
+                  input_html: { autocomplete: "nueva contraseña" } %>
+      <%= f.input :current_password,
+                  label: "Confirme su contraseña:",
                   required: true,
-                  input_html: { autocomplete: "current-password" } %>
+                  input_html: { autocomplete: "contraseña actual" } %>
       <%= f.input :photo, as: :file,
                   required: true,
                   input_html: { class: ''},
-                  label_html: { class: 'upload-photo'},
+                  label_html: { class: 'subir foto'},
                   label: 'Selecciona una nueva foto de perfil' %>
     </div>
 
