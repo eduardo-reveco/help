@@ -28,15 +28,15 @@
                   label: "Contraseña",
                   required: true,
                   hint: ("Mínimo #{@minimum_password_length} caracteres" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "nueva contraseña" } %>
       <%= f.input :password_confirmation,
                   label: "Confirmar la contraseña",
                   required: true,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "nueva contraseña" } %>
       <%= f.input :photo, as: :file,
                   required: true,
                   input_html: { class: ''},
-                  label_html: { class: 'upload-photo'},
+                  label_html: { class: 'subir imagen'},
                   label: 'Selecciona tu foto de perfil' %>
 
     </div>
