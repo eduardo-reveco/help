@@ -16,9 +16,14 @@
       <%= f.input :password,
                   label: "Ingrese nueva contraseña:",
                   required: false,
-                  input_html: { autocomplete: "nueva contraseña" } %>
+                  placeholder: 'solo para editar contraseña',
+                  input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
                   required: false,
+                  placeholder: 'solo para editar contraseña',
+                  label: "Ingrese su nueva contraseña:",
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :current_password,
                   label: "Confirme su nueva contraseña:",
                   input_html: { autocomplete: "nueva contraseña" } %>
       <%= f.input :current_password,
